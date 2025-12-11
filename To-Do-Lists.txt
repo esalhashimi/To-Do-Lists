@@ -1,0 +1,21 @@
+A) Project Idea:
+* Can Register user.
+* Can Login-inuser.
+* Each user seprate Do-List.
+* Can Create, edit show and delete Do-List.
+
+B) Database:
+1) User:
+* -id
+* username
+*password
+* List (from List mode)
+2) List:
+* id
+* title
+* notes
+* doing date
+* doing time
+* status
+
+I use the Embedded relationships
