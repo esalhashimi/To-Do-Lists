@@ -1,8 +1,14 @@
 require('dotenv').config();
 require('./config/database.js');
 
+//import Controller for controle the lists
+const listCtrl = require("./controllers/lists.js")
+
+
 const express = require('express');
 const path = require('path');
+
+
 
 const app = express();
 // Sessions
@@ -28,6 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
+
 // Session
 app.use(
   session({
@@ -53,10 +60,8 @@ app.use('/auth', authCtrl);
 
 // ---------- PROTECTED ROUTES ----------
 app.use(isSignedIn);
+app.use("/lists" , listCtrl )
 
-app.get('/vip-lounge', async (req, res) => {
-  res.send('VIP PAGE');
-});
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

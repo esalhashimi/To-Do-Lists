@@ -1,6 +1,37 @@
 const mongoose = require('mongoose');
 
-// we need mongoose schema
+// Embeded Docs
+
+const ListItemScema = mongoose.Schema({
+  title:{
+    type:String,
+    required:true,
+  },
+  notes:{
+    type: String,
+    required: true,
+  },
+  date:{
+    type: String,
+  },
+  time:{
+    type:String,
+  },
+  status:{
+    type:String,
+    enum: ["Upcoming" , "Current" , "Completed"],
+    required: true,
+  }
+});
+
+const ListScema = mongoose.Schema({
+title: {
+  type:String,
+required: true,
+},
+ListItem: [ListItemScema],
+});
+
 const userSchema = mongoose.Schema({
   username: {
     type: String,
@@ -11,6 +42,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  Lists:[ListScema],
 });
 // then we register the model with mongoose
 const User = mongoose.model('User', userSchema);
