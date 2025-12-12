@@ -10,7 +10,7 @@
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add a New List</h1>
 
-    <form action="" method="">
+    <form action="/users/<%= user._id %>/lists/newCategory" method="POST">
 
         <label for="title">Title:</label>
         <input type="text" name="title" id="title"/>
@@ -26,13 +26,12 @@
 
     <label for="status">Status:</label>
     <select id="status" name="status">
-    <option value="upcoming">upcoming</option>
-    <option value="current">current</option>
-    <option value="completed">completed</option>
+    <option value="Upcoming">Upcoming</option>
+    <option value="Current">Current</option>
+    <option value="Completed">Completed</option>
   </select>
    
-   
-   
+  <button type="submit">Add Lists</button>
    
 </form>
   </body>

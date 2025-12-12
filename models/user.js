@@ -42,7 +42,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  Lists:[ListScema],
+  lists:[ListScema],
 });
 // then we register the model with mongoose
 const User = mongoose.model('User', userSchema);
