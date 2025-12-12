@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= lists.title %></title>
+  </head>
+  <body>
+    <%- include('../../partials/_navbar.ejs') %>
+    <h1><%= lists.title %> Category</h1>
+    <form action="/lists/<%= lists._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete this Category</button>
+    </form>
+    <form action="/lists/<%= lists._id %>/edit" method="get">
+     <button type="submit">Edit this Category</button>
+     </form>
+    
+  </body>
+</html>

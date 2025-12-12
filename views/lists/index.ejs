@@ -8,5 +8,13 @@
   <body>
       <%- include('../partials/_navbar.ejs') %> 
     <h1>Your Apps</h1>
+    <a href="/lists/newCategory">Add a Category</a>
+     <ul>
+ <% lists.forEach(list => { %> 
+  <li>
+   <a href="/lists/<%= list.id %>">   <%= list.title %>
+ </a>    </li>
+ <% }) %>
+ </ul>
   </body>
 </html>
