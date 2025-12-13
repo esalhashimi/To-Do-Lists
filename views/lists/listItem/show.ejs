@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Item: <%= listItem.title %></title>
+</head>
+<body>
+    <%- include('../../partials/_navbar.ejs') %>
+   
+    <h1><%= listItem.title %> Details</h1>
+    <p><strong>Date:</strong> <%= listItem.date %></p>
+    <p><strong>Time:</strong> <%= listItem.time %></p>
+    <p><strong>Status:</strong> <%= listItem.status %></p>
+   
+      
+
+    <hr>
+    <p><strong>Notes:</strong>
+      <br>
+       <%= listItem.notes %></p>
+
+       <form action="/lists/<%= list._id %>/items/<%= listItem._id %>/edit" method="get">
+    <button type="submit">Edit this List Item</button> 
+    </form>
+
+      <form action="/lists/<%= list._id %>/items/<%= listItem._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete this List Item</button>
+  </form>
+
+        <a href="/lists/<%= list._id %>">Back to Category</a>
+</body>
+</html>

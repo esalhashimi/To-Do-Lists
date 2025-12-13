@@ -7,7 +7,7 @@
     <title>Add a New List</title>
   </head>
   <body>
-    <%- include('../partials/_navbar.ejs') %>
+    <%- include('../../partials/_navbar.ejs') %>
     <h1>Add a New List to: <%= list.title %></h1>
 
     <form action="/lists/<%= list._id %>/addItem" method="POST">
@@ -19,10 +19,10 @@
         <textarea type="text" name="notes" id="notes" required> </textarea>
 
         <label for="date">Date:</label>
-        <input type="text" name="date" id="date"/>
+        <input type="date" name="date" id="date"/>
 
         <label for="time">Time:</label>
-        <input type="text" name="time" id="time"/>
+        <input type="time" name="time" id="time"/>
 
     <label for="status">Status:</label>
     <select id="status" name="status">

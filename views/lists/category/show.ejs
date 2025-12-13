@@ -8,18 +8,19 @@
   <body>
     <%- include('../../partials/_navbar.ejs') %>
     
-    <h1><%= list.title %> Category</h1>
+    <h1><%= list.title %> Category </h1>
 
-    <form action="/lists/<%= list._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete this Category</button>
-    </form>
-    
     <form action="/lists/<%= list._id %>/edit" method="get">
       <button type="submit">Edit this Category</button>
     </form>
     
+    <form action="/lists/<%= list._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete this Category</button>
+    </form>
+    
+    
+    
     <a href="/lists/<%= list._id %>/newListItem">Add a List Item</a>
-
     <hr>
     
     <h2>List Items</h2>
@@ -28,17 +29,13 @@
       <ul>
         <% list.ListItem.forEach(item => { %>
           <li>
-            <a href="">  
+            <a href="/lists/<%= list.id %>/items/<%= item._id %>"> 
             <strong><%= item.title %></strong>
             <strong><%= item.date %></strong>
             <strong><%= item.time %></strong>
             <strong><%= item.status %></strong>
-            </a>
             
-            <% if (item.description) { %>
-                - Details: <span><%= item.description %></span>
-            <% } %>
-
+            </a>
             </li>
         <% }); %>
       </ul>

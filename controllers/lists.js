@@ -38,7 +38,7 @@ router.get("/:id/newListItem" , async (req,res) =>{
       return res.status(404).send("List/Category not found");
     }
     //render
-    res.render("lists/new.ejs" , {list})
+    res.render("lists/listItem/new.ejs" , {list})
   }
   catch(error){
     console.error(error)
@@ -99,6 +99,7 @@ router.post("/:id/addItem" , async(req,res) =>{
 
 
 //Find each element data
+  //Find each category element data
 router.get("/:id" , async (req , res) =>{
   try{
     //Lock up the user from re  req.session
@@ -114,7 +115,39 @@ router.get("/:id" , async (req , res) =>{
   }
 })
 
+  //Find each list item element data
+  router.get("/:listId/items/:itemId" , async(req,res) =>{
+    try{
+      //Find the current user
+      const currentUser = await User.findById(req.session.user._id)
+      //Find specific category by using id
+      const list = currentUser.lists.id(req.params.listId)
+
+      if(!list){
+        return res.status(404).send("List/Category not found")
+      }
+
+      //Find the specific list item by using id
+      const listItem = list.ListItem.id(req.params.itemId)
+
+      if(!listItem){
+        return res.status(404).send("List/Category not found")
+      }
+
+      //Render
+      res.render("lists/listItem/show.ejs" ,{
+        list:list,
+        listItem: listItem,
+      })
+    }
+    catch(error){
+      console.error(error)
+      res.redirect("/")
+    }
+  })
+
 //Delete
+  // Delete Category
 router.delete("/:id" , async (req , res) =>{
   try{
     //Look up the user from req.session
@@ -133,13 +166,43 @@ router.delete("/:id" , async (req , res) =>{
   }
 })
 
+  //Delete Itemlist
+  router.delete("/:listId/items/:itemId" , async(req,res) =>{
+    try{
+      //Find the current user
+      const currentUser = await User.findById(req.session.user._id)
+      //Find the specific category
+      const list = currentUser.lists.id(req.params.listId)
+      if(!list){
+        return res.status(404).send("List/Category not found");
+      }
+
+      //Find and delete specific listItem by id
+      list.ListItem.id(req.params.itemId).deleteOne();
+      //save change
+      await currentUser.save();
+      //redirect
+      res.redirect(`/lists/${req.params.listId}`);
+    }
+    catch(error){
+      console.error(error)
+      res.redirect("/")
+    }
+  })
+
 //Edit Page
+  //ُEdit the Category Page
 router.get("/:id/edit" , async(req,res) =>{
   try{
     //Look up the user from req.session
     const currentUser = await User.findById(req.session.user._id);
     //an lists using the id from req.params
     const list = currentUser.lists.id(req.params.id);
+
+    if(!list){
+      return res.status(404).send("Category not found or invalid ID");
+    }
+
     // redirect
     res.render("lists/category/edit.ejs" , {list})
   }
@@ -149,7 +212,35 @@ router.get("/:id/edit" , async(req,res) =>{
   }
 })
 
+//Edit the ItemList Page
+router.get("/:listId/items/:itemId/edit" , async(req, res)=>{
+try{
+// search current user
+const currentUser = await User.findById(req.session.user._id)
+//search specific category
+const list = currentUser.lists.id(req.params.listId);
+
+if(!list){
+      return res.status(404).send("Category not found");
+    }
+
+    const listItem = list.ListItem.id(req.params.itemId);
+
+if(!listItem){
+      return res.status(404).send("List Item not found");
+    }
+
+//render
+res.render("lists/listItem/edit.ejs" , { list, listItem })
+}
+catch(error){
+  console.error(error);
+  res.redirect("/")
+}
+})
+
 //Edit data
+  //Edit category data 
 router.put("/:id" , async (req,res) =>{
   try{
     //Find the user from req.session
@@ -169,3 +260,34 @@ router.put("/:id" , async (req,res) =>{
     res.redirect("/")
   }
 })
+
+  //Edit ItemList data
+  router.put("/:listId/items/:itemId" , async(req,res)=>{
+    try{
+      //search current user
+      const currentUser = await User.findById(req.session.user._id);
+      //search the specific categogy
+      const list = currentUser.lists.id(req.params.listId)
+
+      if(!list){
+        return res.status(404).send("Category not found");
+      }
+
+      const listItem = list.ListItem.id(req.params.itemId); // استخدام itemId
+
+      if(!listItem){
+       return res.status(404).send("List Item not found");
+      }
+
+      //use set method for update the data
+      listItem.set(req.body);
+      //save change
+      await currentUser.save()
+      //redirect
+      res.redirect(`/lists/${req.params.listId}/items/${req.params.itemId}`)
+    }
+    catch(error){
+      console.error(error)
+      res.redirect("/")
+    }
+  })
