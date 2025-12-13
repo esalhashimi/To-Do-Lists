@@ -87,7 +87,7 @@ router.post('/sign-in', async (req, res) => {
     };
 
     req.session.save(() => {
-      res.redirect('/');
+      res.redirect('/lists');
     });
   } catch (error) {
     console.error(error);

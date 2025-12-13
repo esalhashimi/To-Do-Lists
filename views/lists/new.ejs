@@ -8,15 +8,15 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add a New List</h1>
+    <h1>Add a New List to: <%= list.title %></h1>
 
-    <form action="/users/<%= user._id %>/lists/newCategory" method="POST">
+    <form action="/lists/<%= list._id %>/addItem" method="POST">
 
         <label for="title">Title:</label>
-        <input type="text" name="title" id="title"/>
+        <input type="text" name="title" id="title" required/>
 
         <label for="notes">Notes:</label>
-        <input type="text" name="notes" id="notes"/>
+        <textarea type="text" name="notes" id="notes" required> </textarea>
 
         <label for="date">Date:</label>
         <input type="text" name="date" id="date"/>

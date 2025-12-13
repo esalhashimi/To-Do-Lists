@@ -22,28 +22,41 @@ try{
 
 
 //Create Page
+  //render new Category Page
 router.get("/newCategory" , (req,res) =>{
    res.render("lists/category/new.ejs")
 })
-/*
-router.get("/newCategory/newlists" , (req,res) =>{
-    res.render("lists/new.ejs")
+
+//render new List Item by a specific category
+router.get("/:id/newListItem" , async (req,res) =>{
+  try{
+    // Find the user
+    const currentUser = await User.findById(req.session.user._id);
+    // Find the specific category
+    const list = currentUser.lists.id(req.params.id);
+    if(!list){
+      return res.status(404).send("List/Category not found");
+    }
+    //render
+    res.render("lists/new.ejs" , {list})
+  }
+  catch(error){
+    console.error(error)
+    res.redirect("/")
+  }
 })
-*/
+
 
 //Add to Database
+ // Add data from new category page to database
 router.post("/" , async(req,res) =>{
   try{
-    // build variable newCategory
-    const newCategory = {
-      title: req.body.title,
-      ListItem: [],
-    }
+    
     //find the userId
     const currentUser = await User.findById(req.session.user._id)
     //push req.body
     //lists arrays from current user
-    currentUser.lists.push(newCategory);
+    currentUser.lists.push(req.body);
     //save change of the current user
     await currentUser.save();
     //Redirect back to the lists index view
@@ -54,18 +67,36 @@ router.post("/" , async(req,res) =>{
     res.redirect("/")
   }
 })
-/*
-router.post("/newCategory" , async(req,res) =>{
+  //Add data to database
+    //Add data from lists new page to database
+router.post("/:id/addItem" , async(req,res) =>{
   try{
+    //Find the specific category by using ID
+    const listId = req.params.id;
     //find the userId
     const currentUser = await User.findById(req.session.user._id)
+    
+    //search from database to find id category
+    const targetList = currentUser.lists.id(listId);
+
+    if(!targetList){
+      return res.status(404).send("List/Category not found");
+    }
+
+    //Add the data to database
+    targetList.ListItem.push(req.body);
+    //save the change
+    await currentUser.save();
+    //redirect
+    res.redirect(`/lists/${listId}`);
   }
   catch(error){
-    console.error(error)
+    console.error( error);
     res.redirect("/")
   }
 })
-  */
+
+
 
 //Find each element data
 router.get("/:id" , async (req , res) =>{
@@ -73,9 +104,9 @@ router.get("/:id" , async (req , res) =>{
     //Lock up the user from re  req.session
     const currentUser = await User.findById(req.session.user._id)
     //find the category by the categoryId from req.params
-    const lists = currentUser.lists.id(req.params.id);
+    const list = currentUser.lists.id(req.params.id);
     //render the show view
-    res.render("lists/category/show.ejs" ,{lists})
+    res.render("lists/category/show.ejs" ,{list})
   }
   catch(error){
     console.log(error)

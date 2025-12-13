@@ -3,17 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= lists.title %></title>
+    <title><%= list.title %></title>
   </head>
   <body>
     <%- include('../../partials/_navbar.ejs') %>
-    <h1><%= lists.title %> Category</h1>
-    <form action="/lists/<%= lists._id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete this Category</button>
-    </form>
-    <form action="/lists/<%= lists._id %>/edit" method="get">
-     <button type="submit">Edit this Category</button>
-     </form>
     
+    <h1><%= list.title %> Category</h1>
+
+    <form action="/lists/<%= list._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete this Category</button>
+    </form>
+    
+    <form action="/lists/<%= list._id %>/edit" method="get">
+      <button type="submit">Edit this Category</button>
+    </form>
+    
+    <a href="/lists/<%= list._id %>/newListItem">Add a List Item</a>
+
+    <hr>
+    
+    <h2>List Items</h2>
+    
+    <% if (list.ListItem && list.ListItem.length > 0) { %>
+      <ul>
+        <% list.ListItem.forEach(item => { %>
+          <li>
+            <a href="">  
+            <strong><%= item.title %></strong>
+            <strong><%= item.date %></strong>
+            <strong><%= item.time %></strong>
+            <strong><%= item.status %></strong>
+            </a>
+            
+            <% if (item.description) { %>
+                - Details: <span><%= item.description %></span>
+            <% } %>
+
+            </li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p>No items have been added to this list yet.</p>
+    <% } %>
+
   </body>
 </html>
