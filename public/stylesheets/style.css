@@ -1,3 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Default */
 * {
   box-sizing: border-box;
 }
+
+/* Style body element  */
+body{
+  font-family: "poppins" , sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #9ac2ef;
+}
+
+/* style index-body class in body element for main index.ejs*/
+.index-body{
+  background-image: url("https://imgs.search.brave.com/ATj5pCin28MzJv6yy45rQOYO0zIpJ9UR2Y1sLWUxoII/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTkw/ODI2NDkwOS92ZWN0/b3IvY29tcGxldGlv/bi1vZi10YXNrLWxp/c3RzLWNoZWNrbGlz/dC1saXN0LWpvYi1j/aGVja2luZy1wcm9q/ZWN0LXByb2dyZXNz/LXByb2Nlc3MtcXVl/c3Rpb25uYWlyZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/RHhsNGpfZkw0ZGxQ/ODdLeVVybXlaT1I3/U3ZSU2FWRUsxWGk1/NlJ0TVJ2OD0");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw;
+  color: white;
+}
+
+/* style header inside main index.ejs*/
+.main-header{
+  font-weight: bold;
+  color: white;
+  font-size: 5.6em;
+  margin: -160px 20px 0 20px;
+}
+
+/* style paragraph inside main index.ejs */
+.subheader{
+  margin: 0 20px 0 20px;
+  font-size: 1.4em;
+}
+
+/* style div  contain all component down navbar */
+.index-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* style links for sign in and sign up  by class*/
+.auth-links{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 80px 0 0;
+  height: 100%;
+}
+
+.signup-link, .signin-link{
+  text-decoration: none;
+  font-size: 1.5em;
+  padding: 8px 0;
+  border-radius: 25px;
+  width: 10em;
+}
+
+.signup-link{
+  background-color: #ce4866;
+  color: white;
+  margin: 0 0 20px 0;
+}
+
+.signin-link{
+  background-color: #ff5378;
+  color: #1c2e5b;
+  margin: 20px 0 0 0;
+}
+
+/* style after put the Mouse on signup link  */
+.signup-link:hover{
+  background-color: #ff5378;
+}
+
+/* style after put the Mouse on signin link  */
+.signin-link:hover{
+  background-color: #ffffff;
+}
+
+
+/* style the sign-in page sign-in.ejs and sign-up page sighn-up.ejs */
+.signin-container , .signup-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+h1{
+  color: #1c2e5b;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20em;
+  height: 50%;
+  background-color: #f6e7e7;
+  padding: 30px 40px 20px 40px;
+  border-radius: 20px;
+  color: #4b598e;
+  font-weight: bold;
+}
+
+input{
+  border: 1px solid rgb(182,182,182);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+button{
+  padding: 10px;
+  background-color: #ce4866;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  margin: 15px 0;
+  font-size: 1.1em;
+}
+
+/* style lists index index.ejs */
+

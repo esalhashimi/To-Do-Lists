@@ -4,11 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do-List</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-<body>
+<body class="index-body">
   <%- include('./partials/_navbar.ejs') %>
+  <div class="index-container">
+    <div class="text-container">
+        <h1 class="main-header">To-Do-List</h1>
+        <p class="subheader">A remember your tasks</p>
+    </div>
+    <div class="auth-links">
+    <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+    <a class="signin-link" href="/auth/sign-in">Sign In</a>
+    </div>
+  </div>
   
-  <h1>To-Do-List</h1>
-  <p>A track your tasks</p>
+
+
 </body>
 </html>
