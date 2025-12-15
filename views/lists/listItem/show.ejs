@@ -10,7 +10,8 @@
     <%- include('../../partials/_navbar.ejs') %>
     
     <h1><%= listItem.title %> Details</h1>
-    
+    <div class="conteiner">
+
     <div class="item-details-card">
         <p><strong>Date:</strong> <%= listItem.date %></p>
         <p><strong>Time:</strong> <%= listItem.time %></p>
@@ -37,6 +38,8 @@
     </div>
 
     <a class="back-link" href="/lists/<%= list._id %>">Back to Category</a>
+
+    </div>
 
 </body>
 </html>

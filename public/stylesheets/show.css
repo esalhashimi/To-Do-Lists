@@ -11,12 +11,20 @@ body{
     background-color: #9ac2ef;
 }
 
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 /* style show list category page */
 
 .action-buttons-container {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -130,6 +138,7 @@ body{
     display: flex;
     gap: 15px; 
     margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 
