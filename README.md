@@ -1,89 +1,22 @@
-<h1>
-  <span class="headline">New Project</span>
-  <span class="subhead">Setup</span>
-</h1>
-
-## Setup
-
-Open your Terminal application and navigate to your projects directory:
-
-## Cloning the Auth boilerplate
-
-This template uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
-
-Navigate to the [MEN Stack Auth Template](https://github.com/SEB-11-BH/MEN-AUTH-TEMPLATE.git) and clone the repository to your machine and rename the folder to your desired project name by running the following command in your terminal.
-
-**Be sure to replace `<YOUR-PROJECT-NAME>` with your desired project name!**:
-
-```bash
-git clone https://github.com/SEB-11-BH/MEN-AUTH-TEMPLATE.git <YOUR-PROJECT-NAME>
-```
-
-Note by adding the `open-house` argument we're cloning the specified repo into a directory called `open-house` on our machines.
-
-Next, `cd` into your renamed directory:
-
-**Be sure to replace `<YOUR-PROJECT-NAME>` with your desired project name!**:
-
-```bash
-cd <YOUR-PROJECT-NAME>
-```
-
-Finally, remove the existing `.git` information from this template:
-
-```bash
-rm -rf .git
-```
-
-> Removing the `.git` info is important as this is just a starter template provided by GA. You do not need the existing git history for this project.
-
-## GitHub setup
-
-To add this project to GitHub, initialize a new Git repository:
-
-```bash
-git init
-git add .
-git commit -m "init commit"
-```
-
-Make a new repository on [GitHub](https://github.com/) for your project.
-
-Link your local project to your remote GitHub repo:
-
-- use the second set of commands that appear on the empty repo to connect your local project to GitHub.
-
-> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
-
-Open the project's folder in your code editor:
-
-```bash
-code .
-```
-
-## Install dependencies
-
-Next, you will want to install all of the packages listed in `package.json`
-
-```bash
-npm i
-```
-
-## Create your .env
-
-Lastly, we want to create `MONGODB_URI` and `SESSION_SECRET` to hold values used in our auth logic.  `MONGODB_URI` will connect to your MongoDB Atlas connection string so you will need to establish one for this application.  `SESSION_SECRET` will aid in your auth session logic.
-
-Add a `.env` file to your application and add the following secret keys to your application:
-
-```text
-MONGODB_URI=
-SESSION_SECRET=
-```
-
-Start the server and you are ready for launch.
-
-```bash
-npm run dev
-```
-
-Happy Coding!
+A) Screenshot:
+<img width="1353" height="545" alt="image" src="https://github.com/user-attachments/assets/d8f51b68-a9a4-4eb4-a7f8-2b676138971f" />
+B) Name and Background:
+  1) Sayed Isa Hashim Isa Yusuf Alhashimi
+  2) My application can make user and after log in can make a category, each category can build listitem and see details, also, can create,edit,show, and delete from mangooseDB
+C) Link: https://github.com/esalhashimi/To-Do-Lists
+D) Attributions:
+  1) bcrypt
+  2) connect-mongo
+  3) dotenv
+  4) ejs
+  5) express
+  6) express-session
+  7) method-override
+  8) mongoose
+  9) morgan
+E) Technology used: JS, Ejs , CSS , mongooseDB ,Authontication
+F) Next Step:
+  1) change the color stutus.
+  2) can not put previous date
+  3) if the date today can not put previous time
+  4) build response.
