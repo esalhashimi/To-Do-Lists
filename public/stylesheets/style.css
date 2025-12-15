@@ -17,7 +17,7 @@ body{
 
 /* style index-body class in body element for main index.ejs*/
 .index-body{
-  background-image: url("https://imgs.search.brave.com/ATj5pCin28MzJv6yy45rQOYO0zIpJ9UR2Y1sLWUxoII/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTkw/ODI2NDkwOS92ZWN0/b3IvY29tcGxldGlv/bi1vZi10YXNrLWxp/c3RzLWNoZWNrbGlz/dC1saXN0LWpvYi1j/aGVja2luZy1wcm9q/ZWN0LXByb2dyZXNz/LXByb2Nlc3MtcXVl/c3Rpb25uYWlyZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/RHhsNGpfZkw0ZGxQ/ODdLeVVybXlaT1I3/U3ZSU2FWRUsxWGk1/NlJ0TVJ2OD0");
+  background-image: url("https://imgs.search.brave.com/6elBFZto3dI0lS6NSyqIhCoxNiYGZzTzYOwW9OjHsSM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjE1/NTQ3NTI1Ny9waG90/by9jaGVja2xpc3Qu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PXZuN0RKd3dOU1hj/RkF6ZlczMV9zbTFv/a044aHFDMkhSYURI/MG56RWJIckE9");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -28,15 +28,17 @@ body{
 /* style header inside main index.ejs*/
 .main-header{
   font-weight: bold;
-  color: white;
+  color:  #4b598e;
   font-size: 5.6em;
   margin: -160px 20px 0 20px;
+  
 }
 
 /* style paragraph inside main index.ejs */
 .subheader{
   margin: 0 20px 0 20px;
   font-size: 1.4em;
+  color:  #4b598e;
 }
 
 /* style div  contain all component down navbar */
@@ -61,7 +63,7 @@ body{
 .signup-link, .signin-link{
   text-decoration: none;
   font-size: 1.5em;
-  padding: 8px 0;
+  padding: 8px 70px;
   border-radius: 25px;
   width: 10em;
 }
@@ -130,7 +132,181 @@ button{
   border: none;
   margin: 15px 0;
   font-size: 1.1em;
+  cursor: pointer;
 }
 
 /* style lists index index.ejs */
+.all-category-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+}
+
+.all-category-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 90%;
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+.all-category-header h1{
+  color: #1c2e5b;
+  font-weight: 700;
+  font-size: 2.2em;
+  margin: 0;
+  margin-left: -220px;
+}
+
+
+.add-category-link{
+  padding: 8px 25px;
+  background-color: #ce4866;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  font-size: 1em;
+  text-decoration: none;
+  margin: 0;
+  margin-right: -220px;
+}
+
+/* style after move mouse to link */
+.add-category-link:hover{
+  background-color: #ff5378;
+}
+
+ul{
+  list-style: none;
+  width: 60%;
+  max-width: 600px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li{
+  width: 100%;
+}
+
+ul >a , ul li a{
+  display: block;
+  text-decoration: none;
+  color: #1c2e5b;
+  width: 100%;
+  background-color: #f6e7e7;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 6px rgb(0,0,0,0.1);
+}
+
+ul > a:hover , ul li a:hover{
+  background-color: #ffc0cb;
+  color: #1c2e5b;
+  box-shadow: 0 6px 8px rgba(0,0,0,0,0.15);
+}
+
+/* style new category and listitem*/
+.new-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.new-body >form , .edit-body >form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 25em; 
+  height: auto; 
+  background-color: #ffffff; 
+  padding: 30px 40px 30px 40px;
+  border-radius: 15px;
+  color: #4b598e;
+  font-weight: bold;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+  transition: transform 0.3s ease-in-out;
+}
+
+.new-body > form:hover, .edit-body > form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+textarea , select{
+  border: 1px solid rgb(182,182,182);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+textarea{
+ border: 1px solid rgb(182,182,182);
+ border-radius: 10px;
+  padding: 10px;
+   height: 100px;
+  resize: none;
+ 
+}
+
+select{
+  margin-bottom: 10px;
+}
+
+
+
+
+
+select{
+  margin-bottom: 10px;
+}
+
+.edit-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Back to list item */
+.cancel-link{
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: #ff5378;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  margin: 5px 0 0 0;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-link:hover{
+  background-color: #ce4866;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 10px 90px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
 

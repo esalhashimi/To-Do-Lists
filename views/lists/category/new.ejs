@@ -11,15 +11,17 @@
     <%- include('../../partials/_navbar.ejs') %>
     <h1>Add a New Category</h1>
 
-    <form action="/lists" method="POST">
+      <div class="new-body">
+         <form action="/lists" method="POST">
 
         <label for="title">Title:</label>
         <input type="text" name="title" id="title" required/>
 
-    
-   
-  <button type="submit">Add Category</button>
+        <button type="submit">Add Category</button>
    
 </form>
+      </div>
+
+   
   </body>
 </html>

@@ -4,40 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= list.title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/show.css">
   </head>
   <body>
     <%- include('../../partials/_navbar.ejs') %>
     
     <h1><%= list.title %> Category </h1>
-
-    <form action="/lists/<%= list._id %>/edit" method="get">
-      <button type="submit">Edit this Category</button>
-    </form>
     
-    <form action="/lists/<%= list._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete this Category</button>
-    </form>
-    
-    
-    
-    <a href="/lists/<%= list._id %>/newListItem">Add a List Item</a>
+    <div class="action-buttons-container">
+      
+      <form class="action-form" action="/lists/<%= list._id %>/edit" method="get">
+        <button class="edit-category-button" type="submit">Edit this Category</button>
+      </form>
+      
+      <form class="action-form" action="/lists/<%= list._id %>?_method=DELETE" method="POST">
+        <button class="delete-category-button delete-button" type="submit">Delete this Category</button>
+      </form>
+      
+      <a class="add-item-button" href="/lists/<%= list._id %>/newListItem">Add a List Item</a>
+      
+    </div>
     <hr>
-    
+
     <h2>List Items</h2>
     
     <% if (list.ListItem && list.ListItem.length > 0) { %>
-      <ul>
+      <ul class="list-items-container">
         <% list.ListItem.forEach(item => { %>
-          <li>
-            <a href="/lists/<%= list.id %>/items/<%= item._id %>"> 
-            <strong><%= item.title %></strong>
-            <strong><%= item.date %></strong>
-            <strong><%= item.time %></strong>
-            <strong><%= item.status %></strong>
-            
+          <li class="list-item">
+            <a class="item-link" href="/lists/<%= list.id %>/items/<%= item._id %>"> 
+              <strong class="item-title"><%= item.title %></strong>
+              <strong class="item-date"><%= item.date %></strong>
+              <strong class="item-time"><%= item.time %></strong>
+              <strong class="item-status"><%= item.status %></strong>
             </a>
-            </li>
+          </li>
         <% }); %>
       </ul>
     <% } else { %>

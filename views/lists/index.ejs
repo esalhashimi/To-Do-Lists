@@ -3,21 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Apps</title>
+    <title>Your Category</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
       <%- include('../partials/_navbar.ejs') %> 
-    <h1>Your Apps</h1>
-    <a href="/lists/newCategory">Add a Category</a>
-     <ul>
+      <div class="all-category-body">
+        <div class="all-category-header">
+          <h1>Your Category</h1>
+          <a class="add-category-link" href="/lists/newCategory">Add a Category</a>
+        </div>
+        <ul>
  <% lists.forEach(list => { %> 
   <li>
    <a href="/lists/<%= list.id %>">   
     <%= list.title %>
- </a>   
- </li>
- <% }) %>
- </ul>
+      </a>   
+        </li>
+       <% }) %>
+        </ul>
+
+      </div>
+    
+    
+     
   </body>
 </html>
